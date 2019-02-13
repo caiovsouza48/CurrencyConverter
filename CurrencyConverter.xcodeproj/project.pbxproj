@@ -718,6 +718,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 336D666E069FDC45B1B7A651 /* Pods-CurrencyConverter.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5P64VL266S;
@@ -737,6 +738,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6CCE4B73B16E1C4A06AFB251 /* Pods-CurrencyConverter.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5P64VL266S;
@@ -756,7 +758,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4E194B624C7053DA3206DDDE /* Pods-CurrencyConverterTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5P64VL266S;
@@ -778,7 +780,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DF2ADD0E0803129E27B74D02 /* Pods-CurrencyConverterTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5P64VL266S;
@@ -800,7 +802,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D15F796CD683B3784100A20B /* Pods-CurrencyConverterUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5P64VL266S;
 				INFOPLIST_FILE = CurrencyConverterUITests/Info.plist;
@@ -821,7 +823,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 88D62D8AAE4C3A18953FA433 /* Pods-CurrencyConverterUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5P64VL266S;
 				INFOPLIST_FILE = CurrencyConverterUITests/Info.plist;
