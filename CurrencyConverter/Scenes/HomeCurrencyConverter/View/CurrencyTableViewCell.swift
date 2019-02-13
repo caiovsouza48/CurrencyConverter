@@ -42,6 +42,9 @@ class CurrencyTableViewCell: UITableViewCell, NibLoadableView, ReusableView {
         let currencyLocale = Locale(identifier: rate.currencyAbbreviation)
         currencyFullNameLabel.text = (currencyLocale as NSLocale).displayName(forKey:NSLocale.Key.currencyCode, value: rate.currencyAbbreviation)
         // Currency Format
+        if rate.currencyValue == 0.0{
+            currencyAmountTextField.textColor = UIColor.lightGray
+        }
         currencyAmountTextField.text = formattedForCurrency(decimalValue: rate.currencyValue)
     }
     
