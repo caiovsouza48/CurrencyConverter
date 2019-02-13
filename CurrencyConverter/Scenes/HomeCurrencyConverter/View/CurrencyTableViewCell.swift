@@ -52,7 +52,7 @@ class CurrencyTableViewCell: UITableViewCell, NibLoadableView, ReusableView {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         formatter.currencySymbol = ""
-        formatter.maximumFractionDigits = 2
+        formatter.maximumFractionDigits = decimalValue > 0.0 ? 2 : 0
         formatter.currencyDecimalSeparator = NSLocale.current.decimalSeparator
         return formatter.string(for: decimalValue)
     }
