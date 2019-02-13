@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Delegates TextField Behavior to the caller
 protocol CurrencyTableViewCellDelegate : class{
     func didTapTextFieldForCell(_ cell: CurrencyTableViewCell)
     func didEditTextFieldForCell(_ cell: CurrencyTableViewCell)
@@ -36,18 +37,23 @@ class CurrencyTableViewCell: UITableViewCell, NibLoadableView, ReusableView {
         currencyAmountTextField.currencyTextFieldDelegate = self
     }
     
+    /// Setup the cell for a current ViewModel
+    ///
+    /// - Parameter rate: ViewModel to setup
     func config(withRate rate: HomeCurrencyConverter.FetchCurrencies.ViewModel.DisplayedRate){
         countryImageView.image = UIImage(named: rate.currencyAbbreviation.lowercased())
         currencyAbreviationLabel.text = rate.currencyAbbreviation
         let currencyLocale = Locale(identifier: rate.currencyAbbreviation)
         currencyFullNameLabel.text = (currencyLocale as NSLocale).displayName(forKey:NSLocale.Key.currencyCode, value: rate.currencyAbbreviation)
         // Currency Format
-        if rate.currencyValue == 0.0{
-            currencyAmountTextField.textColor = UIColor.lightGray
-        }
         currencyAmountTextField.text = formattedForCurrency(decimalValue: rate.currencyValue)
+        currencyAmountTextField.textColor = colorFor(currencyValue: rate.currencyValue)
     }
     
+    /// Get a Formatted String for a decimal Value
+    ///
+    /// - Parameter decimalValue: value in decimal
+    /// - Returns: Formatted Currency String
     func formattedForCurrency(decimalValue: Decimal) -> String?{
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
@@ -56,16 +62,26 @@ class CurrencyTableViewCell: UITableViewCell, NibLoadableView, ReusableView {
         formatter.currencyDecimalSeparator = NSLocale.current.decimalSeparator
         return formatter.string(for: decimalValue)
     }
+    
+    /// Get a color value for an amount
+    ///
+    /// - Parameter currencyValue: currencyValue of the Field in Decimal
+    /// - Returns: Color according to the currencyValue
+    func colorFor(currencyValue: Decimal) -> UIColor{
+        return currencyValue == 0.0 ? UIColor.lightGray : UIColor.black
+    }
 }
 
 // MARK: UITextFieldDelegate
 extension CurrencyTableViewCell : UITextFieldDelegate{
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.textColor = UIColor.black
         textBottomLineView.backgroundColor = UIColor(red: 247/255.0,
                                                      green: 114/255.0,
                                                      blue: 116/255.0,
                                                      alpha: 1.0)
+        currencyAmountTextField.textColor = UIColor.black
         if let currencyTextField = textField as? UICurrencyTextField{
             currencyTextField.canResign = false
             delegate?.didTapTextFieldForCell(self)
